@@ -1,0 +1,35 @@
+spring:
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: elasticsearch:9200
+      repositories:
+        enabled: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka
+    # healthcheck:
+    #   enabled: true
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}-${random.int}
+    # hostname: localhost
+
+member:
+  rent:
+    min: 8
+    max: 31
+  price:
+    discount: 3
+vehicle:
+  default:
+    model: cross over
+duration: all
+
+openapi:
+  service:
+    url: http://api-service:8080

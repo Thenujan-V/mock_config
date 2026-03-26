@@ -1,0 +1,100 @@
+spring:
+  application:
+    name: notification
+  # profiles:
+  #   active: dev
+  banner:
+    location: classpath:banner.txt
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/auradocs_auradot?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: Aura2528@
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: vthenujan7400@gmail.com
+    password: vicslqxelpvxbbxg
+    properties:
+      mail: 
+        smtp: 
+          auth: true
+          starttls:
+            enable: true
+
+
+sms-service:
+  base-url: "https://richcommunication.dialog.lk/client-area/index.php/cbs/sms/send"
+  token: "c5ca6680cf7dcf1"
+  
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    # healthcheck:
+    #   enabled: true
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}-${random.int}
+    # hostname: localhost
+
+member:
+  rent:
+    min: 8
+    max: 31
+  price:
+    discount: 3
+vehicle:
+  default:
+    model: cross over
+duration: all
+
+server:
+  port: 0
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+services:
+  fileaccess-track:
+    url: http://fileaccess-track/logging
+
+hystrix:
+  timeout: 5000
+
+openapi:
+  service:
+    title: Notification Service
+    description: Notification related Operations in AuraDOCS V4 Micro Services
+    version: 1.0.0-SNAPSHOT
+    url: http://localhost:9191
+  contact:
+    name: AuraDOT PVT Ltd.
+    email: contact@auradot.com
+springdoc:
+  api-docs:
+    path: /notification/api-docs
+  swagger-ui:
+    path: /notification/swagger-ui.html
+
+wsocket:
+  destination:
+    prefix: /app
+  broker:
+    topic-prefix: /topic
+    user-prefix: /queue
+  endpoints:
+    path: /ws
+  notification:
+    endpoint: /queue/notifications
+  broadcast:
+    endpoint: /topic/notifications

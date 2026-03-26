@@ -1,0 +1,70 @@
+spring:
+  application:
+    name: reports
+  # profiles:
+  #   active: dev
+  banner:
+    location: classpath:banner.txt
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/auradocs_auradot?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: Aura2528@
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    healthcheck:
+      enabled: true
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}-${random.int}
+    hostname: localhost
+
+server:
+  port: 0
+
+redis:
+  host: localhost
+  port: 6379
+cache:
+  type: redis
+
+member:
+  rent:
+    min: 8
+    max: 31
+  price:
+    discount: 3
+vehicle:
+  default:
+    model: cross over
+duration: all
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+openapi:
+  service:
+    title: Reports Service
+    description: Report generation service for AuraDOCS V4
+    version: 1.0.0-SNAPSHOT
+    url: http://localhost:9191
+  contact:
+    name: AuraDOT PVT Ltd.
+    email: contact@auradot.com
+springdoc:
+  api-docs:
+    path: /reports/api-docs
+  swagger-ui:
+    path: /reports/swagger-ui.html

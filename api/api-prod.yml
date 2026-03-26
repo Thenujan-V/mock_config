@@ -1,0 +1,43 @@
+server:
+  servlet:
+    context-path: /
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://v4.auradocs.com/realms/auraDOCS
+          # jwk-set-uri: http://keycloak:8080/auth/realms/auraDOCS/protocol/openid-connect/certs
+  
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}-${random.int} 
+    # hostname: localhost
+
+keycloak:
+  realm: auraDOCS
+  auth-server-url: http://keycloak:8080/auth
+  resource: auradocs
+  public-client: true
+  bearer-only: true
+  use-resource-role-mappings: true
+  # auth-endpoint: http://sso.aura.com:8181/realms/${keycloak.realm}/protocol/openid-connect/auth
+  # token-url: http://sso.aura.com:8181/realms/${keycloak.realm}/protocol/openid-connect/token
+
+openapi:
+  service:
+    url: http://api-service:8080
+
+management:
+  health:
+    elasticsearch:
+      enabled: false
+    reactive-elasticsearch:
+      enabled: false

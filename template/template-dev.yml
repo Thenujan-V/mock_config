@@ -1,0 +1,71 @@
+spring:
+  application: 
+    name: template
+  # profiles:
+  #   active: dev 
+  banner: 
+    location: classpath:banner.txt
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/auradocs_auradot?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: Aura2528@
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    # healthcheck:
+    #   enabled: true
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}-${random.int}
+    # hostname: localhost
+
+server:
+  port: 0
+
+archive:
+  location: /var/tmp/auradocsv4
+  identity: archive_1
+  pending-docs:
+    location: /var/tmp/auradocsv4/archive/documents
+  thumbs-location: /var/tmp/auradocsv4/thumbs
+temp:
+  location: /var/tmp/auradocsv4
+  
+management: 
+  tracing: 
+    sampling: 
+      probability: 1.0 
+      
+hystrix:
+  timeout: 5000
+  
+services:
+  search:
+    active: DB   # possible values [DB, ES]
+    cron-url: http://search/cronjobs
+  
+openapi:
+  service:
+    title: Template Service
+    description: Templates related services in auraDOCS V4 micro-services
+    version: 1.0.0-SNAPSHOT
+    url: http://localhost:9191
+  contact:
+    name: AuraDOT PVT Ltd.
+    email: contact@auradot.com
+springdoc: 
+  api-docs:
+    path: /template/api-docs
+  swagger-ui: 
+    path: /template/swagger-ui.html
+    

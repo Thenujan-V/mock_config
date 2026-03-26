@@ -1,0 +1,89 @@
+spring:
+  application:
+    name: archive
+  # profiles:
+  #   active: dev
+  banner: 
+    location: classpath:banner.txt
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/auradocs_auradot?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: Aura2528@
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    # healthcheck:
+    #   enabled: true
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}-${random.int}
+    # hostname: localhost
+
+server:
+  port: 0
+
+services:
+  authentication: http://authentication/services
+  user:
+    user-key: http://user/user-key
+  template:
+    url: http://template/template
+    micro: http://template/template-micro
+  image:
+    admin: http://image/admin-image
+  image-micro:
+    micro: http://image/image-micro
+
+locations:
+  archive-files: /var/tmp/auradocsv4/archive
+
+temp:
+  location: /var/tmp/auradocsv4/temp
+  signature: sign
+  
+management: 
+  tracing: 
+    sampling: 
+      probability: 1.0 
+
+member:
+  rent:
+    min: 8
+    max: 31
+  price:
+    discount: 3
+vehicle:
+  default:
+    model: cross over
+duration: all
+
+openapi:
+  service:
+    title: Archive Service
+    description: File Archive related micro service for the AuraDOCS V4
+    version: 1.0.0-SNAPSHOT
+    url: http://localhost:9191
+  contact:
+    name: AuraDOT PVT Ltd.
+    email: contact@auradot.com
+springdoc: 
+  api-docs:
+    path: /archive/api-docs
+  swagger-ui: 
+    path: /archive/swagger-ui.html
+  

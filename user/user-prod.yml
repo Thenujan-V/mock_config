@@ -1,0 +1,48 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/auradocs_auradot?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: Auradot2528@
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+  data:
+    elasticsearch:
+      repositories:
+        enabled: false
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka
+    # healthcheck:
+    #   enabled: true
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}-${random.int}
+    # hostname: localhost
+
+openapi:
+  service:
+    url: http://api-service:8080
+
+keycloak:
+  auth-server-url: http://keycloak:8080
+  realm: auraDOCS
+  admin:
+    username: auradocs@admin
+    password: auraAdmin@123
+    client-id: user-service-client
+
+management:
+  health:
+    elasticsearch:
+      enabled: false
+    reactive-elasticsearch:
+      enabled: false

@@ -1,0 +1,22 @@
+spring:
+  config: 
+    activate:
+      on-profile: qa
+
+server: 
+  servlet: 
+    context-path: /eureka-server
+    
+eureka:
+  environment: QA
+  instance: 
+    hostname: v4.auradocs.com
+    statusPageUrlPath: ${server.servlet.context-path}/info
+    healthCheckUrlPath: ${server.servlet.context-path}/health
+
+  client:
+    serviceUrl: 
+      defaultZone: https://${eureka.instance.hostname}/${server.servlet.context-path}/eureka
+    registerWithEureka: false
+    fetchRegistry: false
+  

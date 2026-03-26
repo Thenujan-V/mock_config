@@ -1,0 +1,82 @@
+spring:
+  application:
+    name: db-search
+  # profiles:
+  #   active: dev 
+  banner:
+    location: classpath:banner.txt 
+  cloud: 
+    config:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/auradocs_auradot?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: Aura2528@
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    # healthcheck:
+    #   enabled: true
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}-${random.int}
+    # hostname: localhost
+
+  
+server:
+   port: 0
+
+files:
+  thumbs-location: /var/tmp/auradocsv4/thumbs
+  archive-location: /var/tmp/auradocsv4
+  
+management: 
+  tracing: 
+    sampling: 
+      probability: 1.0 
+
+services:
+  fileaccess-track : http://fileaccess-track/logging
+  image:
+    micro-url: http://image/image-micro
+
+hystrix: 
+  timeout: 5000
+  
+
+member:
+  rent:
+    min: 8
+    max: 31
+  price:
+    discount: 3
+vehicle:
+  default:
+    model: cross over
+duration: all
+
+openapi:
+  service:
+    title: DB Search Service
+    description: Document search service to search directly from SQL Database in auraDOCS V4
+    version: 1.0.0-SNAPSHOT
+    # url: http://localhost:9191
+  contact:
+    name: AuraDOT PVT Ltd.
+    email: contact@auradot.com
+springdoc: 
+  api-docs:
+    path: /db-search/api-docs
+  swagger-ui: 
+    path: /db-search/swagger-ui.html
+  

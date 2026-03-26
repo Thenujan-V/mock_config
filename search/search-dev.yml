@@ -1,0 +1,79 @@
+spring:
+  application:
+    name: search
+  # profiles:
+  #   active: dev 
+  banner:
+    location: classpath:banner.txt 
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: localhost:9200
+      repositories:
+        enabled: true
+  cloud: 
+    config:
+      enabled: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    # healthcheck:
+    #   enabled: true
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}-${random.int}
+    # hostname: localhost
+
+member:
+  rent:
+    min: 8
+    max: 31
+  price:
+    discount: 3
+vehicle:
+  default:
+    model: cross over
+duration: all
+
+openapi:
+  service:
+    url: http://localhost:9191
+
+ 
+server:
+   port: 0
+
+files:
+  thumbs-location: /var/tmp/auradocsv4/thumbs
+  archive-location: /var/tmp/auradocsv4
+  
+management: 
+  tracing: 
+    sampling: 
+      probability: 1.0 
+      
+services:
+  fileaccess-track : http://fileaccess-track/logging
+
+hystrix: 
+  timeout: 5000
+  
+openapi:
+  service:
+    title: Search Service
+    description: Document Search service for the AuraDOCS V4 micro services
+    version: 1.0.0-SNAPSHOT
+    url: http://localhost:9191
+  contact:
+    name: AuraDOT PVT Ltd.
+    email: contact@auradot.com
+springdoc: 
+  api-docs:
+    path: /search/api-docs
+  swagger-ui: 
+    path: /search/swagger-ui.html
+  

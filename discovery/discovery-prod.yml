@@ -1,0 +1,17 @@
+
+server: 
+  servlet: 
+    context-path: /
+    
+eureka:
+  environment: DEV
+  instance: 
+    hostname: localhost
+    statusPageUrlPath: ${server.servlet.context-path}/info
+    healthCheckUrlPath: ${server.servlet.context-path}/health
+
+  client:
+    serviceUrl: 
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+    registerWithEureka: false
+    fetchRegistry: false

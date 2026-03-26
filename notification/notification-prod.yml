@@ -1,0 +1,67 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/auradocs_auradot?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: Auradot2528@
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: vthenujan7400@gmail.com
+    password: vicslqxelpvxbbxg
+    properties:
+      mail: 
+        smtp: 
+          auth: true
+          starttls:
+            enable: true
+  data:
+    elasticsearch:
+      repositories:
+        enabled: false
+
+
+sms-service:
+  base-url: "https://richcommunication.dialog.lk/client-area/index.php/cbs/sms/send"
+  token: "c5ca6680cf7dcf1"
+  
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka
+    # healthcheck:
+    #   enabled: true
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}-${random.int}
+    # hostname: localhost
+
+member:
+  rent:
+    min: 8
+    max: 31
+  price:
+    discount: 3
+vehicle:
+  default:
+    model: cross over
+duration: all
+
+openapi:
+  service:
+    url: http://api-service:8080
+
+management:
+  health:
+    elasticsearch:
+      enabled: false
+    reactive-elasticsearch:
+      enabled: false
