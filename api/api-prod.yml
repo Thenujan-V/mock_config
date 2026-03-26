@@ -7,8 +7,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://v4.auradocs.com/auth/realms/auraDOCS
-          # jwk-set-uri: http://keycloak:8080/auth/realms/auraDOCS/protocol/openid-connect/certs
+          # issuer-uri: https://v4.auradocs.com/auth/realms/auraDOCS
+          jwk-set-uri: http://keycloak:8080/auth/realms/auraDOCS/protocol/openid-connect/certs
   
 eureka:
   client:
