@@ -65,3 +65,7 @@ management:
       enabled: false
     reactive-elasticsearch:
       enabled: false
+
+redis:
+  host: redis
+  port: 6379

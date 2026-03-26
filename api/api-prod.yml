@@ -41,3 +41,20 @@ management:
       enabled: false
     reactive-elasticsearch:
       enabled: false
+
+redis:
+  host: redis
+  port: 6379
+
+wsocket:
+  destination:
+    prefix: /app
+  broker:
+    topic-prefix: /topic
+    user-prefix: /queue
+  endpoints:
+    path: /ws
+  notification:
+    endpoint: /queue/notifications
+  broadcast:
+    endpoint: /topic/notifications

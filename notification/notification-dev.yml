@@ -86,15 +86,6 @@ springdoc:
   swagger-ui:
     path: /notification/swagger-ui.html
 
-wsocket:
-  destination:
-    prefix: /app
-  broker:
-    topic-prefix: /topic
-    user-prefix: /queue
-  endpoints:
-    path: /ws
-  notification:
-    endpoint: /queue/notifications
-  broadcast:
-    endpoint: /topic/notifications
+redis:
+  host: localhost
+  port: 6379

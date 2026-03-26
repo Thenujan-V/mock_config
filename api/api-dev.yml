@@ -48,6 +48,23 @@ keycloak:
   auth-endpoint: ${keycloak.auth-server-url}realms/${keycloak.realm}/protocol/openid-connect/auth
   token-url: ${keycloak.auth-server-url}realms/${keycloak.realm}/protocol/openid-connect/token
 
+redis:
+  host: localhost
+  port: 6379
+
+wsocket:
+  destination:
+    prefix: /app
+  broker:
+    topic-prefix: /topic
+    user-prefix: /queue
+  endpoints:
+    path: /ws
+  notification:
+    endpoint: /queue/notifications
+  broadcast:
+    endpoint: /topic/notifications
+
 
 
 services:
