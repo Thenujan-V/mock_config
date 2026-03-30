@@ -35,7 +35,7 @@ keycloak:
   admin:
     username: Thenujanv@auradot.com
     password: Theivarani7400@
-    client-id: user-service-client
+    client-id: admin-cli
 
 
 server:
