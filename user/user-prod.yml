@@ -33,7 +33,7 @@ openapi:
     url: http://api-service:8080
 
 keycloak:
-  auth-server-url: http://keycloak:8080
+  auth-server-url: http://keycloak:8080/auth
   realm: auraDOCS
   admin:
     username: auradocs@admin
