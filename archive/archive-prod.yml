@@ -15,6 +15,15 @@ spring:
       repositories:
         enabled: false
 
+locations:
+  archive-files: /var/tmp/auradocsv4/pending_docs
+
+temp:
+  location: /var/tmp/auradocsv4/temp
+  signature: sign
+  
+ 
+ 
 eureka:
   client:
     register-with-eureka: true

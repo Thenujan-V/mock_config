@@ -27,6 +27,14 @@ eureka:
     # hostname: localhost
 
 
+archive:
+  location: /var/tmp/auradocsv4/pending_docs
+  
+services: 
+  image:
+    url: http://image/image-micro
+
+
 member:
   rent:
     min: 8

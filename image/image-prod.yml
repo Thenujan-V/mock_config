@@ -13,6 +13,23 @@ spring:
   elasticsearch:
     uris: http://elasticsearch:9200
 
+
+archive:
+  location: /var/tmp/auradocsv4
+  identity: archive_1
+  pending-docs:
+    location: /var/tmp/auradocsv4/pending_docs
+  signature-img: signature
+  thumbs-location: /var/tmp/auradocsv4/thumbs
+temp:
+  location: /var/tmp/auradocsv4/temp
+  auto-sign: sign
+combinedDocs:
+  location: /var/tmp/auradocsv4/temp
+bookmark: 
+  location: /var/tmp/bookmark
+
+
 eureka:
   client:
     register-with-eureka: true

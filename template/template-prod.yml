@@ -26,6 +26,17 @@ eureka:
     instance-id: ${spring.application.name}-${random.int}
     # hostname: localhost
 
+
+archive:
+  location: /var/tmp/auradocsv4
+  identity: archive_1
+  pending-docs:
+    location: /var/tmp/auradocsv4/pending_docs
+  thumbs-location: /var/tmp/auradocsv4/thumbs
+temp:
+  location: /var/tmp/auradocsv4
+  
+  
 openapi:
   service:
     url: http://api-service:8080
