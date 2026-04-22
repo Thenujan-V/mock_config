@@ -8,9 +8,7 @@ services:
   # ── Init container ──────────────────────────────────────────────────────────
   # Builds the YAML image, copies files into the named volume, then exits (0).
   config-store:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: thenuzv/config-store:latest
     volumes:
       - config_data:/shared-configs
     restart: "no"                      # run-once; never auto-restart

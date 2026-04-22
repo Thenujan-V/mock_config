@@ -41,6 +41,7 @@ archive:
 temp:
   location: /var/tmp/auradocsv4
   
+  
 management: 
   tracing: 
     sampling: 
@@ -51,7 +52,7 @@ hystrix:
   
 services:
   search:
-    active: DB   # possible values [DB, ES]
+    active: ES   # possible values [DB, ES]
     cron-url: http://search/cronjobs
   
 openapi:
