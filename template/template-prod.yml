@@ -26,6 +26,11 @@ eureka:
     instance-id: ${spring.application.name}-${random.int}
     # hostname: localhost
 
+services:
+  search:
+    active: ES   # possible values [DB, ES]
+    cron-url: http://search/cronjobs
+  
 
 archive:
   location: /var/tmp/auradocsv4

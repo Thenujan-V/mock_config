@@ -30,6 +30,28 @@ bookmark:
   location: /var/tmp/bookmark
 
 
+ 
+services:
+  user: 
+    url: http://user/micro
+    group-url: http://user/auth/group
+    user-key: http://user/user-key
+  search:
+    active: ES   # possible values [DB, ES]
+    cron-url: http://search/cronjobs
+  fileaccess-track:
+    url: http://fileaccess-track/logging
+  archive:
+    url: http://archive/metadata
+  template: 
+    url: http://template/template
+    micro: http://template/template-micro
+  email-notification:
+    url: http://notification/email-manager
+  sms-notification:
+    url: http://notification/sms-manager
+
+
 eureka:
   client:
     register-with-eureka: true

@@ -39,7 +39,7 @@ management:
       probability: 1.0 
 
 archive:
-  location: /var/tmp/auradocsv4/archive
+  location: /var/tmp/auradocsv4/pending_docs
   
 services: 
   image:

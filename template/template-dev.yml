@@ -36,7 +36,7 @@ archive:
   location: /var/tmp/auradocsv4
   identity: archive_1
   pending-docs:
-    location: /var/tmp/auradocsv4/archive/documents
+    location: /var/tmp/auradocsv4/archive/pending_docs
   thumbs-location: /var/tmp/auradocsv4/thumbs
 temp:
   location: /var/tmp/auradocsv4

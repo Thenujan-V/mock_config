@@ -50,7 +50,7 @@ services:
     micro: http://image/image-micro
 
 locations:
-  archive-files: /var/tmp/auradocsv4/archive
+  archive-files: /var/tmp/auradocsv4/pending_docs
 
 temp:
   location: /var/tmp/auradocsv4/temp
