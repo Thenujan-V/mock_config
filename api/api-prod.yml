@@ -9,7 +9,12 @@ spring:
         jwt:
           # issuer-uri: https://v4.auradocs.com/auth/realms/auraDOCS
           jwk-set-uri: http://keycloak:8080/auth/realms/auraDOCS/protocol/openid-connect/certs
-  
+  servlet:
+    multipart:
+      max-file-size: 110MB
+      max-request-size: 110MB
+
+
 eureka:
   client:
     register-with-eureka: true
