@@ -28,7 +28,7 @@ eureka:
 
 services:
   search:
-    active: ES   # possible values [DB, ES]
+    active: DB  # possible values [DB, ES]
     cron-url: http://search/cronjobs
   
 
