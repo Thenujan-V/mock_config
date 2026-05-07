@@ -63,6 +63,9 @@ combinedDocs:
 bookmark: 
   location: /var/tmp/bookmark
 
+link:
+  external-viewer: https://v4.auradocs.com/viewer/
+
 management: 
   tracing: 
     sampling: 

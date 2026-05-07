@@ -51,6 +51,9 @@ services:
   sms-notification:
     url: http://notification/sms-manager
 
+link:
+  external-viewer: https://v4.auradocs.com/viewer/
+
 
 eureka:
   client:
