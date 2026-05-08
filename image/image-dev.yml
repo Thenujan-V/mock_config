@@ -52,7 +52,7 @@ archive:
   location: /var/tmp/auradocsv4
   identity: archive_1
   pending-docs:
-    location: /var/tmp/auradocsv4/archive/pending_docs
+    location: /var/tmp/auradocsv4/pending_docs
   signature-img: signature
   thumbs-location: /var/tmp/auradocsv4/thumbs
 temp:
@@ -80,7 +80,7 @@ services:
     group-url: http://user/auth/group
     user-key: http://user/user-key
   search:
-    active: DB  # possible values [DB, ES]
+    active: ES  # possible values [DB, ES]
     cron-url: http://search/cronjobs
   fileaccess-track:
     url: http://fileaccess-track/logging

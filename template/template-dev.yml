@@ -36,7 +36,7 @@ archive:
   location: /var/tmp/auradocsv4
   identity: archive_1
   pending-docs:
-    location: /var/tmp/auradocsv4/archive/pending_docs
+    location: /var/tmp/auradocsv4/pending_docs
   thumbs-location: /var/tmp/auradocsv4/thumbs
 temp:
   location: /var/tmp/auradocsv4
@@ -52,7 +52,7 @@ hystrix:
   
 services:
   search:
-    active: DB  # possible values [DB, ES]
+    active: ES  # possible values [DB, ES]
     cron-url: http://search/cronjobs
   
 openapi:
