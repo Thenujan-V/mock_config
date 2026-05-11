@@ -14,7 +14,7 @@ spring:
     host: mail.auradocs.com
     port: 465
     username: approval@auradocs.com
-    password: g&hGUREZE3m@US4s
+    password: zujCHwza$BjSF?W{
     properties:
       mail:
         smtp:
