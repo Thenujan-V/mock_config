@@ -37,7 +37,7 @@ services:
     group-url: http://user/auth/group
     user-key: http://user/user-key
   search:
-    active: DB   # possible values [DB, ES]
+    active: ES   # possible values [DB, ES]
     cron-url: http://search/cronjobs
   fileaccess-track:
     url: http://fileaccess-track/logging
