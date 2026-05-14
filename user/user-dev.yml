@@ -84,3 +84,12 @@ springdoc:
 undersecretary:
   key:
     password: "auradocsuserkeystore"
+
+keycloak:
+  auth-server-url: http://localhost:8080
+  realm: auraDOCS
+  admin:
+    username: Thenujanv@auradot.com
+    password: Theivarani7400@
+    client-id: admin-cli
+    client-secret: E5FA0I8mgCaq6iGJ3HQSVb8WysyJhc8d
