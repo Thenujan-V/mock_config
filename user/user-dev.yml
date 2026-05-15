@@ -38,7 +38,9 @@ keycloak:
     client-id: admin-cli
     client-secret: V62Y8BcOPmfjmEcqLAiDioXfYKWZVPYR
 
-
+keycloak-sync:
+  fixed-delay-ms: 900000  #The value should be in milliseconds, 900000 ms = 15 minutes
+ 
 server:
   port: 0
 
