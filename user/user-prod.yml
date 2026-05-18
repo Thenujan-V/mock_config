@@ -53,7 +53,7 @@ keycloak:
     password: auraAdmin@123
     client-id: admin-cli
     client-secret: NWyibHwsthwwSpxHeEqRWe5ruqjAr4GL
-    client-uuid: 07666559-064b-487a-bf19-0ee580a5f1b0
+    session-client-id: auradocs
 
 keycloak-sync:
   fixed-delay-ms: 900000 #The value should be in milliseconds, 900000 ms = 15 minutes
