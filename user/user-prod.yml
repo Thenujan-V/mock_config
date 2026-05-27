@@ -8,7 +8,7 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      ddl-auto: update
+      ddl-auto: validate
     database-platform: org.hibernate.dialect.MySQL8Dialect
   data:
     elasticsearch:
@@ -52,7 +52,7 @@ keycloak:
     username: auradocs@admin
     password: auraAdmin@123
     client-id: admin-cli
-    client-secret: NWyibHwsthwwSpxHeEqRWe5ruqjAr4GL
+    client-secret: 07666559-064b-487a-bf19-0ee580a5f1b0
     session-client-id: auradocs
 
 keycloak-sync:
