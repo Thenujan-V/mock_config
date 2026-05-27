@@ -36,7 +36,7 @@ keycloak:
     username: Thenujanv@auradot.com
     password: Theivarani7400@
     client-id: admin-cli
-    client-secret: 97d6e568-bb1e-407c-b4bd-b3441625e3f7
+    client-secret: nLKAkki8HBTqfulW6qjhA0AbKp9eCCAz
     session-client-id: auradocs
 
 keycloak-sync:

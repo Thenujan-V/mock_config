@@ -52,7 +52,7 @@ keycloak:
     username: auradocs@admin
     password: auraAdmin@123
     client-id: admin-cli
-    client-secret: 07666559-064b-487a-bf19-0ee580a5f1b0
+    client-secret: LVXL2Z0ZUZXJvf3pKxmixVyhE4pTFV4z
     session-client-id: auradocs
 
 keycloak-sync:
