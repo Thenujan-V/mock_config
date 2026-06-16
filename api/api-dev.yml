@@ -11,8 +11,8 @@ spring:
     location: classpath:banner.txt
   servlet:
     multipart:
-      max-file-size: 50MB
-      max-request-size: 50MB
+      max-file-size: 120MB
+      max-request-size: 120MB
   security:
     oauth2:
       resourceserver:
