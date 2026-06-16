@@ -59,7 +59,7 @@ temp:
 jodconverter:
   local:
     enabled: true
-    office-home: C:\Program Files\LibreOffice
+    office-home: 
     working-dir: C:\var\tmp\auradocsv4\temp
     process-timeout: 60000
     process-retry-interval: 250
