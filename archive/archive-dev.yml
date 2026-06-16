@@ -59,8 +59,8 @@ temp:
 # jodconverter:
 #   local:
 #     enabled: true
-#     office-home: C:\Program Files\LibreOffice
-#     working-dir: C:\var\tmp\auradocsv4\temp
+#     office-home: /usr/lib/libreoffice
+#     working-dir: /var/tmp/auradocsv4/jod
 #     process-timeout: 60000
 #     process-retry-interval: 250
 #     task-execution-timeout: 180000
@@ -74,13 +74,13 @@ temp:
 #       - --nodefault
 #       - --nofirststartwizard
 #       - --norestore
-#     template-profile-dir: C:\var\tmp\auradocsv4\temp\jod_template_profile
+#     template-profile-dir: /var/tmp/auradocsv4/jod_profile
 
-jodconverter:
-  remote:
-    enabled: true
-    url: http://localhost:2002
-    task-execution-timeout: 600000
+# jodconverter:
+#   remote:
+#     enabled: true
+#     url: http://localhost:2002
+#     task-execution-timeout: 600000
   
 management: 
   tracing: 
