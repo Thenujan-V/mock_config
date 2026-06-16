@@ -56,26 +56,31 @@ temp:
   location: /var/tmp/auradocsv4/temp
   signature: sign
 
-jodconverter:
-  local:
-    enabled: true
-    office-home: C:\Program Files\LibreOffice
-    working-dir: C:\var\tmp\auradocsv4\temp
-    process-timeout: 60000
-    process-retry-interval: 250
-    task-execution-timeout: 180000
-    task-queue-timeout: 240000
-    max-tasks-per-process: 50
-    port-numbers: 2002,2003,2004,2005
-    process-manager: org.jodconverter.local.process.PureJavaProcessManager
-    process-args:
-      - --headless
-      - --invisible
-      - --nodefault
-      - --nofirststartwizard
-      - --norestore
-    # template-profile-dir: C:\var\tmp\auradocsv4\temp\jod_template_profile
+# jodconverter:
+#   local:
+#     enabled: true
+#     office-home: C:\Program Files\LibreOffice
+#     working-dir: C:\var\tmp\auradocsv4\temp
+#     process-timeout: 60000
+#     process-retry-interval: 250
+#     task-execution-timeout: 180000
+#     task-queue-timeout: 240000
+#     max-tasks-per-process: 50
+#     port-numbers: 2002,2003,2004,2005
+#     process-manager: org.jodconverter.local.process.PureJavaProcessManager
+#     process-args:
+#       - --headless
+#       - --invisible
+#       - --nodefault
+#       - --nofirststartwizard
+#       - --norestore
+#     template-profile-dir: C:\var\tmp\auradocsv4\temp\jod_template_profile
 
+jodconverter:
+  remote:
+    enabled: true
+    url: http://localhost:2002
+    task-execution-timeout: 600000
   
 management: 
   tracing: 
