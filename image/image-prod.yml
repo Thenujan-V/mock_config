@@ -54,6 +54,33 @@ services:
 link:
   external-viewer: https://v4.auradocs.com/viewer/
 
+jodconverter:
+  local:
+    enabled: true
+    office-home: /usr/lib/libreoffice
+    working-dir: /var/tmp/auradocsv4/temp
+    process-timeout: 60000
+    process-retry-interval: 250
+    task-execution-timeout: 300000   # 5 min — covers large files up to ~100 MB
+    task-queue-timeout: 300000
+    max-tasks-per-process: 10        # recycle LibreOffice process after 10 tasks
+    port-numbers: 3002,3003
+
+    # kill-existing-process: true
+    # process-manager: org.jodconverter.local.process.WindowsProcessManager
+
+    environment-variables:
+      PATH: "/usr/lib/libreoffice/program:$PATH"
+      # PYTHONHOME: "/usr/lib/libreoffice/program/python-core-3.12.13"
+      # PYTHONPATH: "/usr/lib/libreoffice/program"
+    process-args:
+      - "--headless"
+      - "--invisible"
+      - "--nologo"
+      - "--nodefault"
+      - "--nofirststartwizard"
+      - "--norestore"
+
 
 eureka:
   client:

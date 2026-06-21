@@ -94,6 +94,34 @@ services:
   sms-notification:
     url: http://notification/sms-manager
 
+jodconverter:
+  local:
+    enabled: true
+    office-home:
+    working-dir: C:\var\tmp\auradocsv4\temp
+    process-timeout: 60000
+    process-retry-interval: 250
+    task-execution-timeout: 300000   # 5 min — covers large files up to ~100 MB
+    task-queue-timeout: 300000
+    max-tasks-per-process: 25        # recycle LibreOffice process after 10 tasks
+    port-numbers: 3002,3003
+
+    kill-existing-process: true
+    process-manager: org.jodconverter.local.process.WindowsProcessManager
+
+    environment-variables:
+      PATH: "C:\\Program Files\\LibreOffice\\program;%PATH%"
+      PYTHONHOME: "C:\\Program Files\\LibreOffice\\program\\python-core-3.12.13"
+      PYTHONPATH: "C:\\Program Files\\LibreOffice\\program"
+    process-args:
+      - "--headless"
+      - "--invisible"
+      - "--nologo"
+      - "--nodefault"
+      - "--nofirststartwizard"
+      - "--norestore"
+
+
 openapi:
   service:
     title: Image Service

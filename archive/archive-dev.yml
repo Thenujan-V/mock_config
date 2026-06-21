@@ -56,31 +56,32 @@ temp:
   location: /var/tmp/auradocsv4/temp
   signature: sign
 
-# jodconverter:
-#   local:
-#     enabled: true
-#     office-home: /usr/lib/libreoffice
-#     working-dir: /var/tmp/auradocsv4/jod
-#     process-timeout: 60000
-#     process-retry-interval: 250
-#     task-execution-timeout: 180000
-#     task-queue-timeout: 240000
-#     max-tasks-per-process: 50
-#     port-numbers: 2002,2003,2004,2005
-#     process-manager: org.jodconverter.local.process.PureJavaProcessManager
-#     process-args:
-#       - --headless
-#       - --invisible
-#       - --nodefault
-#       - --nofirststartwizard
-#       - --norestore
-#     template-profile-dir: /var/tmp/auradocsv4/jod_profile
+jodconverter:
+  local:
+    enabled: true
+    office-home:
+    working-dir: C:\var\tmp\auradocsv4\temp
+    process-timeout: 60000
+    process-retry-interval: 250
+    task-execution-timeout: 600000
+    task-queue-timeout: 300000
+    max-tasks-per-process: 10
+    port-numbers: 2002,2003
 
-# jodconverter:
-#   remote:
-#     enabled: true
-#     url: http://localhost:2002
-#     task-execution-timeout: 600000
+    kill-existing-process: true
+    process-manager: org.jodconverter.local.process.WindowsProcessManager
+
+    environment-variables:
+      PATH: "C:\\Program Files\\LibreOffice\\program;%PATH%"
+      PYTHONHOME: "C:\\Program Files\\LibreOffice\\program\\python-core-3.12.13"
+      PYTHONPATH: "C:\\Program Files\\LibreOffice\\program"
+    process-args:
+      - "--headless"
+      - "--invisible"
+      - "--nologo"
+      - "--nodefault"
+      - "--nofirststartwizard"
+      - "--norestore"
   
 management: 
   tracing: 

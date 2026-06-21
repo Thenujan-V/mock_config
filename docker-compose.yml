@@ -1,4 +1,4 @@
-version: '4.0.0'
+version: '4.0.1'
 
 volumes:
   config_data:
@@ -8,7 +8,7 @@ services:
   # ── Init container ──────────────────────────────────────────────────────────
   # Builds the YAML image, copies files into the named volume, then exits (0).
   config-store:
-    image: auradocsv4/auradocsv4_main:config-store-latest
+    image: auradocsv4/auradocsv4_main:config-store-4.0.1
     volumes:
       - config_data:/shared-configs
     restart: "no"                      # run-once; never auto-restart
