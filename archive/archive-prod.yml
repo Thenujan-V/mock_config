@@ -18,9 +18,18 @@ spring:
     multipart:
       max-file-size: 110MB
       max-request-size: 110MB
+# server:
+#   port: 0
+#   compression:
+#     enabled: false
 
 locations:
   archive-files: /var/tmp/auradocsv4/pending_docs
+
+mailbox:
+  imap:
+    uri: imaps://traineeseauradot%40gmail.com:amntkqpmopaixqiq@imap.gmail.com:993/INBOX
+  enabled: true
 
 temp:
   location: /var/tmp/auradocsv4/temp
