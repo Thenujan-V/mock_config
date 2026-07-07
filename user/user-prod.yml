@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql:3306/auradocs_v4_test?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mysql://mysql:3306/auradocs_auradot?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
     username: auradocsv4
     password: Aura2528@
   jpa:
