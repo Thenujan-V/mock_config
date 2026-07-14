@@ -45,7 +45,11 @@ server:
 files:
   thumbs-location: /var/tmp/auradocsv4/thumbs
   archive-location: /var/tmp/auradocsv4
-  
+
+es:
+  index:
+    bulk-batch-size: 500
+      
 management: 
   tracing: 
     sampling: 

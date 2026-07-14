@@ -33,3 +33,7 @@ duration: all
 openapi:
   service:
     url: http://api-service:8080
+
+es:
+  index:
+    bulk-batch-size: 100

@@ -32,6 +32,7 @@ bookmark:
 cron:
   es-index:
     batch-size: 1000
+    reindex-batch-size: 500
   encryption:
     batch-size: 20
  
@@ -113,3 +114,7 @@ site:
 openapi:
   service:
     url: http://api-service:8080
+
+auradoc:
+  watermark:
+  watermark-enabled: false

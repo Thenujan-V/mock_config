@@ -28,6 +28,10 @@ eureka:
     instance-id: ${spring.application.name}-${random.int}
     # hostname: localhost
 
+services:
+  archive:
+    url: http://archive/metadata
+    
 redis:
   host: redis
   port: 6379
