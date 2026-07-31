@@ -48,8 +48,8 @@ files:
 
 es:
   index:
-    bulk-batch-size: 500
-      
+    bulk-batch-size: 
+          
 management: 
   tracing: 
     sampling: 
