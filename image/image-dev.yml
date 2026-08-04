@@ -150,4 +150,4 @@ undersecretary:
 
 auradoc:
   watermark:
-  watermark-enabled: true
+  watermark-enabled: false
