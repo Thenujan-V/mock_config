@@ -110,23 +110,25 @@ jodconverter:
     process-retry-interval: 250
     task-execution-timeout: 300000   # 5 min — covers large files up to ~100 MB
     task-queue-timeout: 300000
-    max-tasks-per-process: 25        # recycle LibreOffice process after 10 tasks
-    port-numbers: 3002,3003
-
+    max-tasks-per-process: 50
+    port-numbers: 3002,3003,3004
+    existing-process-action: connect_or_kill
     kill-existing-process: true
-    process-manager: org.jodconverter.local.process.WindowsProcessManager
 
-    environment-variables:
-      PATH: "C:\\Program Files\\LibreOffice\\program;%PATH%"
-      PYTHONHOME: "C:\\Program Files\\LibreOffice\\program\\python-core-3.12.13"
-      PYTHONPATH: "C:\\Program Files\\LibreOffice\\program"
-    process-args:
-      - "--headless"
-      - "--invisible"
-      - "--nologo"
-      - "--nodefault"
-      - "--nofirststartwizard"
-      - "--norestore"
+  large-file:
+    port-numbers: 3010, 3011
+
+    # environment-variables:
+    #   PATH: "C:\\Program Files\\LibreOffice\\program;%PATH%"
+    #   PYTHONHOME: "C:\\Program Files\\LibreOffice\\program\\python-core-3.12.13"
+    #   PYTHONPATH: "C:\\Program Files\\LibreOffice\\program"
+    # process-args:
+    #   - "--headless"
+    #   - "--invisible"
+    #   - "--nologo"
+    #   - "--nodefault"
+    #   - "--nofirststartwizard"
+    #   - "--norestore"
 
 
 openapi:
@@ -151,3 +153,25 @@ undersecretary:
 auradoc:
   watermark:
   watermark-enabled: false
+
+auradocs:
+  storage:
+    provider: ${AURADOCS_STORAGE_PROVIDER:azure}   # local | s3 | azure
+    archive-identity: archive_1
+    pending-identity: pending_docs
+    thumbs-identity: thumbs
+    local:
+      root-path: /var/tmp/auradocsv4
+      temp-path: /var/tmp/auradocsv4/temp
+    s3:
+      endpoint: ${AURADOCS_S3_ENDPOINT:} # blank for AWS S3; http://localhost:9000 for MinIO
+      region: ${AWS_REGION:}
+      bucket: ${AWS_S3_BUCKET:}
+      access-key: ${AWS_ACCESS_KEY_ID:}
+      secret-key: ${AWS_SECRET_ACCESS_KEY:}
+      path-style-access: true                       # required for MinIO
+      multipart-threshold-bytes: 16777216
+    azure:
+      connection-string: ${AZURE_STORAGE_CONNECTION_STRING:}   # keep secret out of git
+      container: ${AZURE_BLOB_CONTAINER:aura-docs-store}
+      create-container-if-missing: true

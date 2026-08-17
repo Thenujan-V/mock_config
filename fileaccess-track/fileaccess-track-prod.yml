@@ -33,6 +33,8 @@ archive:
 services: 
   image:
     url: http://image/image-micro
+  archive:
+    url: http://archive/metadata
 
 
 member:
