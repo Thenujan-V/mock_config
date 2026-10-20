@@ -68,3 +68,8 @@ auradocs:
       connection-string: ${AZURE_STORAGE_CONNECTION_STRING:}   # keep secret out of git
       container: ${AZURE_BLOB_CONTAINER:aura-docs-store}
       create-container-if-missing: true
+
+management:
+  tracing:
+    sampling:
+      probability: 0.3

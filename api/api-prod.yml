@@ -67,6 +67,9 @@ management:
       enabled: false
     reactive-elasticsearch:
       enabled: false
+    tracing:
+      sampling:
+        probability: 0.3
 
 redis:
   host: redis

@@ -51,3 +51,8 @@ duration: all
 openapi:
   service:
     url: http://api-service:8080
+  
+management:
+  tracing:
+    sampling:
+      probability: 0.3

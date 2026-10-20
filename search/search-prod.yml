@@ -36,4 +36,39 @@ openapi:
 
 es:
   index:
-    bulk-batch-size: 100
+    bulk-batch-size: 50
+
+    
+auradocs:
+  storage:
+    provider: ${AURADOCS_STORAGE_PROVIDER:azure}   # local | s3 | azure
+    archive-identity: archive_1
+    pending-identity: pending_docs
+    thumbs-identity: thumbs
+    local:
+      root-path: /var/tmp/auradocsv4
+      temp-path: /var/tmp/auradocsv4/temp
+      # nginx serves root-path and validates the secure_link hash; see docs/nginx-storage.conf.example
+      public-base-url: ${AURADOCS_LOCAL_PUBLIC_URL:https://v4.auradocs.com}
+      public-path-prefix: /files
+      secure-link-secret: ${AURADOCS_SECURE_LINK_SECRET:fhhdfgrfg4rt5yy57eyrt45qeet4rqeq3FWR4EDQEQ3yfgdrq34r4yt5ergddfw4r34t5ehfee232ert}
+    s3:
+      endpoint: ${AURADOCS_S3_ENDPOINT:} # blank for AWS S3; http://localhost:9000 for MinIO
+      region: ${AWS_REGION:ap-south-1}
+      bucket: ${AWS_S3_BUCKET:}
+      access-key: ${AWS_ACCESS_KEY_ID:}
+      secret-key: ${AWS_SECRET_ACCESS_KEY:}
+      path-style-access: true                       # required for MinIO
+      multipart-threshold-bytes: 16777216
+    azure:
+      connection-string: ${AZURE_STORAGE_CONNECTION_STRING:}
+      container: ${AZURE_BLOB_CONTAINER:aura-docs-store}
+      create-container-if-missing: false            # search is read-only; the writers create it
+  thumbs:
+    url-ttl: PT30M          # how long a signed thumbnail URL stays valid
+    url-cache-bucket: PT15M # expiry is rounded up to this, so URLs stay browser-cacheable
+
+management:
+  tracing:
+    sampling:
+      probability: 0.3
