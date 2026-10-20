@@ -41,7 +41,7 @@ es:
     
 auradocs:
   storage:
-    provider: ${AURADOCS_STORAGE_PROVIDER:azure}   # local | s3 | azure
+    provider: ${AURADOCS_STORAGE_PROVIDER:local}   # local | s3 | azure
     archive-identity: archive_1
     pending-identity: pending_docs
     thumbs-identity: thumbs

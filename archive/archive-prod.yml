@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql:3306/auradocs_auradot?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
-    username: auradocsv4
-    password: Aura2528@
+    url: jdbc:mysql://ab-securitas-dms-live-rds.c0f4dpxriezd.ap-south-1.rds.amazonaws.com:3306/auradocs_v4_new?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: auradot_v4_admin
+    password: 86PJbE7+UY0
   jpa:
     hibernate:
       naming:
@@ -109,7 +109,7 @@ management:
 # url: jdbc:mysql://mysql:3306/auradocs_auradot?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
 auradocs:
   storage:
-    provider: ${AURADOCS_STORAGE_PROVIDER:azure}   # local | s3 | azure
+    provider: ${AURADOCS_STORAGE_PROVIDER:local}   # local | s3 | azure
     archive-identity: archive_1
     pending-identity: pending_docs
     thumbs-identity: thumbs
