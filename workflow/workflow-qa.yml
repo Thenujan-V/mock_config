@@ -1,0 +1,79 @@
+spring:
+  application:
+    name: workflow
+  banner:
+    location: classpath:banner.txt
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/auradocs_auradot?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: ${AURADOCS_DB_USERNAME:root}
+    password: ${AURADOCS_DB_PASSWORD}
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    properties:
+      hibernate:
+        # workflow tables hold UTC instants; AuraDOCS tables keep Asia/Colombo local time
+        jdbc:
+          time_zone: UTC
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka-server/eureka
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}-${random.int}
+
+server:
+  port: 0
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+workflow:
+  outbox:
+    enabled: true
+    poll-interval: PT2S
+    batch-size: 50
+  jobs:
+    enabled: true
+    poll-interval: PT5S
+    batch-size: 20
+    lease: PT5M
+  calendar:
+    zone: Asia/Colombo
+    weekend: SATURDAY,SUNDAY
+    holidays: []
+  webhooks:
+    connect-timeout: PT2S
+    read-timeout: PT5S
+    allow-private-networks: false
+  directory:
+    cache-ttl: PT60S
+  notifications:
+    enabled: true
+    app-url: http://localhost:4200
+  attachments:
+    staged-keep: P1D
+
+openapi:
+  service:
+    title: Workflow Service
+    description: Workflow (process engine, tasks, SLA) micro service for the AuraDOCS V4
+    version: 1.0.0-SNAPSHOT
+    url: https://v4.auradocs.com/api
+  contact:
+    name: AuraDOT PVT Ltd.
+    email: contact@auradot.com
+springdoc:
+  api-docs:
+    path: /workflow/api-docs
+  swagger-ui:
+    path: /workflow/swagger-ui.html
