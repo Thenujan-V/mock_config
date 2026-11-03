@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: form
+  banner:
+    location: classpath:banner.txt
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/auradocs_auradot?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: auradocsv4
+    password: Aura2528@
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    properties:
+      hibernate:
+        # form tables hold UTC instants; AuraDOCS tables keep Asia/Colombo local time
+        jdbc:
+          time_zone: UTC
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}-${random.int}
+
+server:
+  port: 0
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+openapi:
+  service:
+    title: Form Service
+    description: Form (definitions, validation, submissions) micro service for the AuraDOCS V4
+    version: 1.0.0-SNAPSHOT
+    url: http://localhost:9191
+  contact:
+    name: AuraDOT PVT Ltd.
+    email: contact@auradot.com
+springdoc:
+  api-docs:
+    path: /form/api-docs
+  swagger-ui:
+    path: /form/swagger-ui.html
